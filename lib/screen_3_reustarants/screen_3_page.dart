@@ -1,5 +1,7 @@
 // Экран ресторанов
 import 'package:flutter/material.dart';
+import 'package:lab_crossplatform/screen_3_reustarants/Data/Cathegories.dart';
+import 'package:lab_crossplatform/screen_3_reustarants/Widget/CathegoryCards.dart';
 
 class ThirdScreen extends StatefulWidget {
   ThirdScreen({Key? key}) : super(key: key);
@@ -15,10 +17,6 @@ class _ThirdScreenState extends State<ThirdScreen> {
   static const List<Widget> _widgetOptions = <Widget>[
     Text(
       'Главная',
-      style: optionStyle,
-    ),
-    Text(
-      'Рестораны',
       style: optionStyle,
     ),
     Text(
@@ -39,10 +37,12 @@ class _ThirdScreenState extends State<ThirdScreen> {
       appBar: AppBar(
         title: Text('Dostavka'),
       ),
-      body: Container(
-        padding: const EdgeInsets.all(0.0),
-        alignment: Alignment.center,
-        child: _widgetOptions.elementAt(_selectedIndex),
+      body: ListView(
+        scrollDirection: Axis.horizontal,
+        children: cathegories
+            .map((categories) => buildCatCard(context,
+                image: categories.icon, title: categories.title))
+            .toList(),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -62,4 +62,11 @@ class _ThirdScreenState extends State<ThirdScreen> {
       ),
     );
   }
+
+  Widget buildCatCard(BuildContext context,
+          {required String image, required String title}) =>
+      FractionallySizedBox(
+        heightFactor: 0.25,
+        child: CathegoryCard(title: title, image: image),
+      );
 }
