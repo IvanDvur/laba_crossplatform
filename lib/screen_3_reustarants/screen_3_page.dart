@@ -1,8 +1,9 @@
 // Экран ресторанов
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:lab_crossplatform/screen_3_reustarants/Data/Cathegories.dart';
+
 import 'package:lab_crossplatform/screen_3_reustarants/Widget/CathegoryCards.dart';
+
+import 'Data/CategoryData.dart';
 
 class ThirdScreen extends StatefulWidget {
   ThirdScreen({Key? key}) : super(key: key);
@@ -26,7 +27,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
             flex: 3,
             child: ListView(
               scrollDirection: Axis.horizontal,
-              children: cathegories
+              children: categories
                   .map((categories) => buildCatCard(context,
                       image: categories.icon, title: categories.title))
                   .toList(),

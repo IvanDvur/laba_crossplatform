@@ -4,8 +4,3 @@ class Cathegory {
 
   const Cathegory({required this.title, required this.icon});
 }
-
-class Reustarant {
-  final String name;
-  final String name;
-}
