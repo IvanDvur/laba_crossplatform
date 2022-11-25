@@ -6,7 +6,7 @@ A new Flutter project.
 
 This project is a starting point for a Flutter application.
 
-test push
+test push test
 test push 2
 
 A few resources to get you started if this is your first Flutter project:
