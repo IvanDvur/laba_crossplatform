@@ -6,5 +6,5 @@ final List<Cathegory> categories = [
   const Cathegory(title: "Bakery", icon: "lib/assets/images/bread.png"),
   const Cathegory(title: "Dessert", icon: "lib/assets/images/ice-cream.png"),
   const Cathegory(title: "Vegetarian", icon: "lib/assets/images/fish1.png"),
-  const Cathegory(title: "Alcohol", icon: "lib/assets/images/fish1.png")
+  const Cathegory(title: "Kebab", icon: "lib/assets/images/kebab.png")
 ];

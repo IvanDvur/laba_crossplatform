@@ -31,8 +31,8 @@ class CathegoryCard extends StatelessWidget {
       );
 
   Widget buildTitle(BuildContext context, {required String title}) => Container(
-        color: Colors.grey,
-        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        color: Colors.yellow,
+        padding: const EdgeInsets.symmetric(vertical: 0.0),
         child: Text(
           title,
           style: Theme.of(context)
