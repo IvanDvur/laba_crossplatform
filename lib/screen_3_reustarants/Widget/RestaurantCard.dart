@@ -11,8 +11,8 @@ class ReustarantCard extends StatelessWidget {
       {required this.image,
       required this.name,
       required this.category,
-      this.width = 900,
-      this.height = 400,
+      this.width = 500,
+      this.height = 300,
       Key? key})
       : super(key: key);
 
@@ -21,6 +21,22 @@ class ReustarantCard extends StatelessWidget {
         height: height,
         width: width,
         margin: const EdgeInsets.symmetric(vertical: 10.0),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(10),
+              topRight: Radius.circular(10),
+              bottomLeft: Radius.circular(10),
+              bottomRight: Radius.circular(10)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: Offset(0, 3), // changes position of shadow
+            ),
+          ],
+        ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(10.0),
           child: Column(
@@ -30,7 +46,7 @@ class ReustarantCard extends StatelessWidget {
                   Expanded(child: buildImage()),
                 ],
               ),
-              Expanded(
+              Flexible(
                 child: buildTitle(context, title: name),
               )
             ],
@@ -41,17 +57,17 @@ class ReustarantCard extends StatelessWidget {
   Widget buildImage() => Image.asset(
         image,
         width: width,
-        fit: BoxFit.cover,
       );
 
   Widget buildTitle(BuildContext context, {required String title}) => Container(
         color: Colors.white,
-        padding: const EdgeInsets.symmetric(vertical: 0.0),
+        margin: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.symmetric(vertical: 5.0),
         child: Text(
           title,
           style: Theme.of(context)
               .textTheme
-              .headline3
+              .headline4
               ?.copyWith(color: Colors.black87),
           textAlign: TextAlign.center,
         ),

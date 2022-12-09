@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lab_crossplatform/screen_3_reustarants/Widget/CathegoryCard.dart';
 import 'package:lab_crossplatform/screen_3_reustarants/Widget/RestaurantCard.dart';
+
 import 'Data/CategoryData.dart';
 import 'Data/RestaurantData.dart';
 
@@ -33,25 +34,30 @@ class _ThirdScreenState extends State<ThirdScreen> {
           Expanded(
             flex: 2,
             child: Container(
-                alignment: Alignment.topCenter,
                 child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: categories
-                      .map((categories) => buildCategoryCard(context,
-                          image: categories.icon, title: categories.title))
-                      .toList(),
-                )),
+              scrollDirection: Axis.horizontal,
+              children: categories
+                  .map((categories) => buildCategoryCard(context,
+                      image: categories.icon, title: categories.title))
+                  .toList(),
+            )),
           ),
           Expanded(
-              flex: 8,
-              child: Container(
-                child: ListView(
-                  scrollDirection: Axis.vertical,
-                ),
-              ))
+            flex: 8,
+            child: ListView(
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
+              children: restaurants
+                  .map((restaurants) => buildReustarantCard(context,
+                      name: restaurants.name,
+                      image: restaurants.image,
+                      cathegory: restaurants.cathegory))
+                  .toList(),
+            ),
+          )
         ],
       ),
-      /////////////////////////////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////////////////////
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Главная'),
@@ -76,36 +82,46 @@ class _ThirdScreenState extends State<ThirdScreen> {
         heightFactor: 1,
         child: CathegoryCard(title: title, image: image),
       );
-}
-/*Container(
-          height: 120,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: InkWell(
-                  onTap: () {},
-                  child: Container(
-                    width: 100,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.black),
-                    child: const Center(
-                      child: Text(
-                        "ListView1",
-                        style: TextStyle(fontSize: 20, color: Colors.white),
-                      ),
-                    ),
-                  ),
-                ),
-              )
-            ],*/
 
-/*ListView(
-          scrollDirection: Axis.horizontal,
-          children: cathegories
-              .map((categories) => buildCatCard(context,
-                  image: categories.icon, title: categories.title))
-              .toList(),
-        ),*/
+  Widget buildReustarantCard(BuildContext context,
+          {required String name,
+          required String image,
+          required List<String> cathegory}) =>
+      FractionallySizedBox(
+        child: ReustarantCard(
+          image: image,
+          name: name,
+          category: cathegory,
+        ),
+      );
+}
+
+/*Column(
+        children: <Widget>[
+          Expanded(
+            flex: 2,
+            child: Container(
+                alignment: Alignment.topCenter,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: categories
+                      .map((categories) => buildCategoryCard(context,
+                          image: categories.icon, title: categories.title))
+                      .toList(),
+                )),
+          ),
+          Expanded(
+              flex: 8,
+              child: Container(
+                child: ListView(
+                  scrollDirection: Axis.vertical,
+                  children: restaurants
+                      .map((restaurants) => buildReustarantCard(context,
+                          name: restaurants.name,
+                          image: restaurants.image,
+                          cathegory: restaurants.cathegory))
+                      .toList(),
+                ),
+              ))
+        ],
+      ),*/
