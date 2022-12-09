@@ -101,27 +101,26 @@ class _ThirdScreenState extends State<ThirdScreen> {
           Expanded(
             flex: 2,
             child: Container(
-                alignment: Alignment.topCenter,
                 child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: categories
-                      .map((categories) => buildCategoryCard(context,
-                          image: categories.icon, title: categories.title))
-                      .toList(),
-                )),
+              scrollDirection: Axis.horizontal,
+              children: categories
+                  .map((categories) => buildCategoryCard(context,
+                      image: categories.icon, title: categories.title))
+                  .toList(),
+            )),
           ),
           Expanded(
-              flex: 8,
-              child: Container(
-                child: ListView(
-                  scrollDirection: Axis.vertical,
-                  children: restaurants
-                      .map((restaurants) => buildReustarantCard(context,
-                          name: restaurants.name,
-                          image: restaurants.image,
-                          cathegory: restaurants.cathegory))
-                      .toList(),
-                ),
-              ))
+            flex: 8,
+            child: ListView(
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
+              children: restaurants
+                  .map((restaurants) => buildReustarantCard(context,
+                      name: restaurants.name,
+                      image: restaurants.image,
+                      cathegory: restaurants.cathegory))
+                  .toList(),
+            ),
+          )
         ],
       ),*/
