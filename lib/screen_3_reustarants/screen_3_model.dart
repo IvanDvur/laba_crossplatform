@@ -10,5 +10,6 @@ class Restaurant {
   final List<String> cathegory;
   final String image;
 
-  const Restaurant(this.image, {required this.name, required this.cathegory});
+  const Restaurant(
+      {required this.image, required this.name, required this.cathegory});
 }

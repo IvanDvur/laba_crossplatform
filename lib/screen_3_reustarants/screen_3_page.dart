@@ -2,8 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lab_crossplatform/screen_3_reustarants/Widget/CathegoryCard.dart';
-
+import 'package:lab_crossplatform/screen_3_reustarants/Widget/RestaurantCard.dart';
 import 'Data/CategoryData.dart';
+import 'Data/RestaurantData.dart';
 
 class ThirdScreen extends StatefulWidget {
   ThirdScreen({Key? key}) : super(key: key);
@@ -45,7 +46,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
               flex: 8,
               child: Container(
                 child: ListView(
-                  children: [],
+                  scrollDirection: Axis.vertical,
                 ),
               ))
         ],
