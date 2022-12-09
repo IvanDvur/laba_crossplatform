@@ -15,6 +15,7 @@ class ThirdScreen extends StatefulWidget {
 }
 
 class _ThirdScreenState extends State<ThirdScreen> {
+  int _current_index = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,6 +60,12 @@ class _ThirdScreenState extends State<ThirdScreen> {
       ),
       ////////////////////////////////////////////////////////////////////////
       bottomNavigationBar: BottomNavigationBar(
+        onTap: (index) {
+          setState(() {
+            _current_index = index;
+          });
+        },
+        currentIndex: _current_index,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Главная'),
           BottomNavigationBarItem(
