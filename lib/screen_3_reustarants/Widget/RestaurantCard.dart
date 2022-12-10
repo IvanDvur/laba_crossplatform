@@ -12,7 +12,7 @@ class ReustarantCard extends StatelessWidget {
       required this.name,
       required this.category,
       this.width = 500,
-      this.height = 300,
+      this.height = 270,
       Key? key})
       : super(key: key);
 
@@ -56,7 +56,8 @@ class ReustarantCard extends StatelessWidget {
 
   Widget buildImage() => Image.asset(
         image,
-        width: width,
+        width: 380,
+        height: 200,
       );
 
   Widget buildTitle(BuildContext context, {required String title}) => Container(

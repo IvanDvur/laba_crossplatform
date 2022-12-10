@@ -16,6 +16,7 @@ class ThirdScreen extends StatefulWidget {
 
 class _ThirdScreenState extends State<ThirdScreen> {
   int _current_index = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,15 +46,20 @@ class _ThirdScreenState extends State<ThirdScreen> {
           ),
           Expanded(
             flex: 8,
-            child: ListView(
-              shrinkWrap: true,
-              scrollDirection: Axis.vertical,
-              children: restaurants
-                  .map((restaurants) => buildReustarantCard(context,
-                      name: restaurants.name,
-                      image: restaurants.image,
-                      cathegory: restaurants.cathegory))
-                  .toList(),
+            child: Container(
+              height: double.infinity,
+              width: 380,
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: restaurants.length,
+                scrollDirection: Axis.vertical,
+                itemBuilder: (contex, index) {
+                  return buildReustarantCard(context,
+                      name: restaurants[index].name,
+                      image: restaurants[index].image,
+                      cathegory: restaurants[index].cathegory);
+                },
+              ),
             ),
           )
         ],
@@ -73,7 +79,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
           {required String name,
           required String image,
           required List<String> cathegory}) =>
-      FractionallySizedBox(
+      Expanded(
         child: ReustarantCard(
           image: image,
           name: name,
