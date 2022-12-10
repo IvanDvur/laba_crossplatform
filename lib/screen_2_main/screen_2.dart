@@ -1,7 +1,6 @@
 // Главный экран
 import 'package:flutter/material.dart';
-import 'package:lab_crossplatform/screen_2_main/Data/carusel_main.dart';
-import 'package:lab_crossplatform/screen_2_main/Data/circle_main.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lab_crossplatform/screen_2_main/Data/square_main.dart';
 
 import '../screen_5_dish/screen_5_model.dart';
@@ -16,22 +15,22 @@ class TwoScreen extends StatefulWidget {
 class MainScreenPage_2 extends State<TwoScreen> {
   final List<Dish> _posts = [
     const Dish(
-        title: "post 1",
+        title: "",
         iconUrl:
             "lib/assets/images/Abstract 2 by Meriç Dağlı  on Unsplash (large).jpg.jpg",
         description: "Фон 1"),
     const Dish(
-        title: "post 2",
+        title: "",
         iconUrl:
             "lib/assets/images/Abstract 1 by Delila Ziebart on Unsplash (large).jpg.jpg",
         description: "Фон 2"),
     const Dish(
-        title: "post 3",
+        title: "",
         iconUrl:
             "lib/assets/images/Abstract 3 by Meriç Dağlı  on Unsplash (large).jpg.jpg",
         description: "Фон 3"),
     const Dish(
-        title: "post 4",
+        title: "",
         iconUrl:
             "lib/assets/images/Abstract 4 by Viktoria Sotsugova on Unsplash (large).jpg.jpg",
         description: "Фон 4"),
@@ -39,37 +38,44 @@ class MainScreenPage_2 extends State<TwoScreen> {
 
   final List _stories = [
     const Dish(
-        title: "post 1",
+        title: "Хлеб",
         iconUrl: "lib/assets/images/bread.png",
         description: "Фон 1"),
     const Dish(
-        title: "post 2",
-        iconUrl: "lib/assets/images/sausage.svg",
+        title: "Рыба",
+        iconUrl: "lib/assets/images/fish1.png",
         description: "Фон 2"),
     const Dish(
-        title: "post 4",
-        iconUrl: "lib/assets/images/tomato.svg",
+        title: "Кебаб",
+        iconUrl: "lib/assets/images/kebab.png",
         description: "Фон 4"),
   ];
-
-  int _current_index = 1;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Магазин',
+          style: GoogleFonts.jetBrainsMono(
+              fontWeight: FontWeight.w900, color: Colors.black),
+        ),
+        backgroundColor: Colors.white,
+        elevation: 10,
+      ),
       body: Container(
           child: Column(
         children: [
           Container(
-            margin: EdgeInsets.only(left: 10, top: 30),
+            margin: EdgeInsets.only(top: 10, bottom: 5),
             child: Text(
               "Акции",
-              style: TextStyle(fontSize: 36, fontStyle: FontStyle.normal),
+              style: TextStyle(fontSize: 28, fontStyle: FontStyle.normal),
             ),
           ),
           // stories
           Container(
-              height: 150,
+              height: 120,
               // child: CarouselApp(),
               child: ListView.builder(
                   itemCount: _posts.length,
@@ -82,10 +88,10 @@ class MainScreenPage_2 extends State<TwoScreen> {
                   })),
 
           Container(
-            margin: EdgeInsets.only(left: 10, top: 30),
+            margin: EdgeInsets.only(top: 5, bottom: 5),
             child: Text(
               "Заказывали ранее",
-              style: TextStyle(fontSize: 36, fontStyle: FontStyle.normal),
+              style: TextStyle(fontSize: 28, fontStyle: FontStyle.normal),
             ),
           ),
 

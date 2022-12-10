@@ -23,7 +23,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
       /////////////////////////////////////////////////////////////////////////
       appBar: AppBar(
         title: Text(
-          'Dostavka',
+          'Рестораны',
           style: GoogleFonts.jetBrainsMono(
               fontWeight: FontWeight.w900, color: Colors.black),
         ),

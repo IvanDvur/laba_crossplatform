@@ -11,20 +11,27 @@ class MySquare extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10),
-      child: Container(
-        height: 200,
-        // color: Colors.deepPurple[100],
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: new AssetImage(childIcon), repeat: ImageRepeat.repeat),
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: Colors.blueAccent)),
-        child: Center(
-          child: Text(
-            child,
-            style: GoogleFonts.saira(fontSize: 40),
-          ),
-        ),
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: Container(
+            alignment: Alignment.bottomLeft,
+            height: 200,
+            // color: Colors.deepPurple[100],
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: new AssetImage(childIcon),
+                ),
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(color: Colors.lightBlue, width: 2)),
+            child: Container(
+              margin: EdgeInsets.only(
+                left: 13,
+              ),
+              child: Text(
+                child,
+                style: GoogleFonts.sarala(fontSize: 25),
+              ),
+            )),
       ),
     );
   }
@@ -40,26 +47,28 @@ class MyRectangle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10),
-      child: Container(
-        clipBehavior: Clip.hardEdge,
-        height: 200,
-        width: 370,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-              image: new AssetImage(childIcon), repeat: ImageRepeat.repeat),
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.blueAccent),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: Offset(0, 3), // changes position of shadow
-            ),
-          ],
-        ),
-        //color: Colors.deepOrange[100],
-        child: Center(
+      child: Align(
+        alignment: Alignment.bottomLeft,
+        child: Container(
+          alignment: Alignment.bottomLeft,
+          clipBehavior: Clip.hardEdge,
+          height: 200,
+          width: 370,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: new AssetImage(childIcon), repeat: ImageRepeat.repeat),
+            borderRadius: BorderRadius.circular(20),
+            // border: Border.all(color: Colors.blueAccent),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: Offset(0, 3), // changes position of shadow
+              ),
+            ],
+          ),
+          //color: Colors.deepOrange[100],
           child: Text(
             child,
             style: TextStyle(fontSize: 40),

@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lab_crossplatform/screen_5_dish/screen_5_model.dart';
 
 import 'Data/DishData.dart';
 
 class FifthScreen extends StatefulWidget {
-
-  FifthScreen({Key? key}): super(key: key);
+  FifthScreen({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _FifthScreenState();
@@ -19,7 +19,13 @@ class _FifthScreenState extends State<FifthScreen> {
       title: "Yandex Eat",
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Yandex Eattttt"),
+          title: Text(
+            'Корзина',
+            style: GoogleFonts.jetBrainsMono(
+                fontWeight: FontWeight.w900, color: Colors.black),
+          ),
+          backgroundColor: Colors.white,
+          elevation: 10,
         ),
         body: GridView.count(
           crossAxisCount: 2,
@@ -42,14 +48,14 @@ class SelectCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         child: Center(
-          child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Expanded(child: Image.asset(dish.iconUrl)),
-                Text(dish.title),
-              ]),
-        ));
+      child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Expanded(child: Image.asset(dish.iconUrl)),
+            Text(dish.title),
+          ]),
+    ));
   }
 }
 
@@ -94,7 +100,7 @@ class DishModalBottomSheet extends StatelessWidget {
                                 shape: CircleBorder(),
                                 padding: EdgeInsets.all(20),
                                 backgroundColor:
-                                Colors.blue, // <-- Button color
+                                    Colors.blue, // <-- Button color
                                 foregroundColor: Colors.red, // <-- Splash color
                               ),
                             ),
@@ -106,17 +112,20 @@ class DishModalBottomSheet extends StatelessWidget {
                                 shape: CircleBorder(),
                                 padding: EdgeInsets.all(20),
                                 backgroundColor:
-                                Colors.blue, // <-- Button color
+                                    Colors.blue, // <-- Button color
                                 foregroundColor: Colors.red, // <-- Splash color
                               ),
                             )
                           ],
                         ),
-                        Row(children: [
-                          ElevatedButton(child: const Text('Добавить в корзину'),
-                            onPressed: () => Navigator.pop(context),
-                          )
-                        ],)
+                        Row(
+                          children: [
+                            ElevatedButton(
+                              child: const Text('Добавить в корзину'),
+                              onPressed: () => Navigator.pop(context),
+                            )
+                          ],
+                        )
                       ],
                     ),
                   ],
