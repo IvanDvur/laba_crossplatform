@@ -4,7 +4,14 @@ import 'package:lab_crossplatform/screen_2_main/Data/carusel_main.dart';
 import 'package:lab_crossplatform/screen_2_main/Data/circle_main.dart';
 import 'package:lab_crossplatform/screen_2_main/Data/square_main.dart';
 
-class MainScreen extends StatelessWidget {
+class TwoScreen extends StatefulWidget {
+  const TwoScreen({Key? key}) : super(key: key);
+
+  @override
+  State<TwoScreen> createState() => MainScreenPage_2();
+}
+
+class MainScreenPage_2 extends State<TwoScreen> {
 
   final List _posts = [
     'post 1',
@@ -65,26 +72,6 @@ class MainScreen extends StatelessWidget {
               )
             ],
           )
-      ),
-
-
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (index) {
-            _current_index = index;
-        },
-        currentIndex: _current_index,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Главная'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.restaurant_outlined),
-            label: 'Рестораны',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'Корзина',
-          )
-        ],
-        selectedItemColor: Colors.amber[800],
       ),
     );
   }

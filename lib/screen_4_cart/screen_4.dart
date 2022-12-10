@@ -17,24 +17,26 @@ class _ScreenFourPageState extends State<ScreenFourPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "Dostavka",
-            style: TextStyle(color: Colors.black),
-          ),
-          elevation: 0.0,
-          backgroundColor: Colors.transparent,
-          leading: IconButton(
-            icon: Icon(
-              Icons.keyboard_arrow_left,
-              color: Colors.black,
-            ),
-            onPressed: () {},
-          ),
-        ),
+        // appBar: AppBar(
+        //   title: Text(
+        //     "Dostavka",
+        //     style: TextStyle(color: Colors.black),
+        //   ),
+        //   elevation: 0.0,
+        //   backgroundColor: Colors.transparent,
+        //   leading: IconButton(
+        //     icon: Icon(
+        //       Icons.keyboard_arrow_left,
+        //       color: Colors.black,
+        //     ),
+        //     onPressed: () {},
+        //   ),
+        // ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Column(
+          child: Container(
+            margin: EdgeInsets.only(top: 20),
+            child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
 
@@ -124,19 +126,6 @@ class _ScreenFourPageState extends State<ScreenFourPage> {
             ],
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Главная'),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.restaurant_outlined),
-              label: 'Рестораны',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart),
-              label: 'Корзина',
-            )
-          ],
-          selectedItemColor: Colors.amber[800],
         ),
       ),
     );

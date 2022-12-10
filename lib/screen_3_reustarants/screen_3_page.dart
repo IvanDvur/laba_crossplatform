@@ -8,7 +8,7 @@ import 'Data/CategoryData.dart';
 import 'Data/RestaurantData.dart';
 
 class ThirdScreen extends StatefulWidget {
-  ThirdScreen({Key? key}) : super(key: key);
+  const ThirdScreen({Key? key}) : super(key: key);
 
   @override
   State<ThirdScreen> createState() => _ThirdScreenState();
@@ -57,27 +57,6 @@ class _ThirdScreenState extends State<ThirdScreen> {
             ),
           )
         ],
-      ),
-      ////////////////////////////////////////////////////////////////////////
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (index) {
-          setState(() {
-            _current_index = index;
-          });
-        },
-        currentIndex: _current_index,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Главная'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.restaurant_outlined),
-            label: 'Рестораны',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'Корзина',
-          )
-        ],
-        selectedItemColor: Colors.amber[800],
       ),
       //////////////////////////////////////////////////////////////////////////
     );
