@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lab_crossplatform/screen_2_main/screen_2.dart';
 import 'package:lab_crossplatform/screen_3_reustarants/screen_3_page.dart';
 
 // ignore_for_file: prefer_const_constructors
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         primaryColor: const Color(0xFF2196f3),
         canvasColor: const Color(0xFFfafafa),
       ),
-      home: ThirdScreen(),
+      home: MainScreen(),
     );
   }
 }
