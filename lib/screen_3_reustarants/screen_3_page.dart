@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lab_crossplatform/screen_3_reustarants/Widget/CathegoryCard.dart';
 import 'package:lab_crossplatform/screen_3_reustarants/Widget/RestaurantCard.dart';
 
+import '../screen_5_dish/screen_5_page.dart';
 import 'Data/CategoryData.dart';
 import 'Data/RestaurantData.dart';
 
@@ -15,8 +16,6 @@ class ThirdScreen extends StatefulWidget {
 }
 
 class _ThirdScreenState extends State<ThirdScreen> {
-  int _current_index = 1;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,20 +45,28 @@ class _ThirdScreenState extends State<ThirdScreen> {
           ),
           Expanded(
             flex: 8,
-            child: Container(
-              height: double.infinity,
-              width: 380,
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: restaurants.length,
-                scrollDirection: Axis.vertical,
-                itemBuilder: (contex, index) {
-                  return buildReustarantCard(context,
-                      name: restaurants[index].name,
-                      image: restaurants[index].image,
-                      cathegory: restaurants[index].cathegory);
-                },
+            child: InkWell(
+              child: Container(
+                height: double.infinity,
+                width: 380,
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: restaurants.length,
+                  scrollDirection: Axis.vertical,
+                  itemBuilder: (contex, index) {
+                    return buildReustarantCard(context,
+                        name: restaurants[index].name,
+                        image: restaurants[index].image,
+                        cathegory: restaurants[index].cathegory);
+                  },
+                ),
               ),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => FifthScreen(name: "Delivery")));
+              },
             ),
           )
         ],

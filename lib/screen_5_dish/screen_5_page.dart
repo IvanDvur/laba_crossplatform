@@ -6,27 +6,31 @@ import 'package:lab_crossplatform/screen_5_dish/screen_5_model.dart';
 import 'Data/DishData.dart';
 
 class FifthScreen extends StatefulWidget {
-  FifthScreen({Key? key}) : super(key: key);
-
+  FifthScreen({Key? key, required this.name}) : super(key: key);
+  String name;
   @override
-  State<StatefulWidget> createState() => _FifthScreenState();
+  State<StatefulWidget> createState() => _FifthScreenState(this.name);
 }
 
 class _FifthScreenState extends State<FifthScreen> {
+  String name;
+
+  _FifthScreenState(this.name);
+
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'Yandex Еда',
-            style: GoogleFonts.jetBrainsMono(
-                fontWeight: FontWeight.w900, color: Colors.black),
-          ),
-          backgroundColor: Colors.white,
-          elevation: 10,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          name,
+          style: GoogleFonts.jetBrainsMono(
+              fontWeight: FontWeight.w900, color: Colors.black),
         ),
-        body: Container(
-          child: GridView.count(
+        backgroundColor: Colors.white,
+        elevation: 10,
+      ),
+      body: Container(
+        child: GridView.count(
           crossAxisCount: 2,
           children: List.generate(dishes.length, (index) {
             return Center(
@@ -34,7 +38,22 @@ class _FifthScreenState extends State<FifthScreen> {
             );
           }),
         ),
-        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Главная'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.restaurant_outlined),
+            label: 'Рестораны',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: 'Корзина',
+          )
+        ],
+        selectedItemColor: Colors.amber[800],
+        currentIndex: 1,
+      ),
     );
   }
 }

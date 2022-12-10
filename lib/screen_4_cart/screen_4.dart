@@ -17,6 +17,7 @@ class _ScreenFourPageState extends State<ScreenFourPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -47,91 +48,90 @@ class _ScreenFourPageState extends State<ScreenFourPage> {
           child: Container(
             margin: EdgeInsets.only(top: 20),
             child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-
-              SizedBox(height: 18.0),
-              Container(
-                height: 300,
-                child: ListView.builder(
-                  shrinkWrap: true,
-
-                  itemCount: items.length,
-                  itemBuilder: (context,index){
-                    return CartItem(item: items[index] );
-                  },),
-              ),
-
-              SizedBox(height: 40.0),
-              Divider(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Заказ",
-                    style:
-                    TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                SizedBox(height: 18.0),
+                Container(
+                  height: 300,
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: items.length,
+                    itemBuilder: (context, index) {
+                      return CartItem(item: items[index]);
+                    },
                   ),
-                  Text(
-                    "48000,00\u20BD",
-                    style:
-                    TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-                  ),
-                ],
-              ),
-              SizedBox(height: 4.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Стоимость доставки",
-                    style: TextStyle(
-                      fontSize: 14.0,
+                ),
+                SizedBox(height: 40.0),
+                Divider(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Заказ",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16.0),
                     ),
-                  ),
-                  Text(
-                    "99,00\u20BD",
-                    style: TextStyle(fontSize: 14.0),
-                  ),
-                ],
-              ),
-              Divider(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Сумма закза",
-                    style:
-                    TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    "48099,00\u20BD",
-                    style:
-                    TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              Spacer(),
-              MaterialButton(
-                onPressed: () {},
-                color: Colors.amber[800],
-                height: 50.0,
-                minWidth: double.infinity,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0)
+                    Text(
+                      "48000,00\u20BD",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16.0),
+                    ),
+                  ],
                 ),
-                child: Text(
-                  "Оформить заказ",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.bold),
+                SizedBox(height: 4.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Стоимость доставки",
+                      style: TextStyle(
+                        fontSize: 14.0,
+                      ),
+                    ),
+                    Text(
+                      "99,00\u20BD",
+                      style: TextStyle(fontSize: 14.0),
+                    ),
+                  ],
                 ),
-              ),
-              SizedBox(height: 18.0,)
-            ],
+                Divider(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Сумма закза",
+                      style: TextStyle(
+                          fontSize: 16.0, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "48099,00\u20BD",
+                      style: TextStyle(
+                          fontSize: 16.0, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+                Spacer(),
+                MaterialButton(
+                  onPressed: () {},
+                  color: Colors.amber[800],
+                  height: 50.0,
+                  minWidth: double.infinity,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0)),
+                  child: Text(
+                    "Оформить заказ",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                SizedBox(
+                  height: 18.0,
+                )
+              ],
+            ),
           ),
-        ),
         ),
       ),
     );
@@ -139,9 +139,7 @@ class _ScreenFourPageState extends State<ScreenFourPage> {
 }
 
 class CartItem extends StatelessWidget {
-  const CartItem({
-    Key? key,required this.item
-  }) : super(key: key);
+  const CartItem({Key? key, required this.item}) : super(key: key);
   final Item item;
 
   @override
@@ -163,8 +161,7 @@ class CartItem extends StatelessWidget {
                 decoration: BoxDecoration(
                     image: DecorationImage(
                         fit: BoxFit.scaleDown,
-                        image: new AssetImage(item.icon)
-                            ),
+                        image: new AssetImage(item.icon)),
                     borderRadius: BorderRadius.circular(20.0)),
               ),
             ),
@@ -220,7 +217,7 @@ class CartItem extends StatelessWidget {
                     ),
                     Spacer(),
                     Text(
-                      item.price +" \u20BD",
+                      item.price + " \u20BD",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
