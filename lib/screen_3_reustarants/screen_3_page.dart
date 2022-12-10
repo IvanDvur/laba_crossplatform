@@ -1,72 +1,112 @@
 // Экран ресторанов
 import 'package:flutter/material.dart';
-import 'package:lab_crossplatform/screen_3_reustarants/Data/Cathegories.dart';
-import 'package:lab_crossplatform/screen_3_reustarants/Widget/CathegoryCards.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:lab_crossplatform/screen_3_reustarants/Widget/CathegoryCard.dart';
+import 'package:lab_crossplatform/screen_3_reustarants/Widget/RestaurantCard.dart';
+
+import 'Data/CategoryData.dart';
+import 'Data/RestaurantData.dart';
 
 class ThirdScreen extends StatefulWidget {
-  ThirdScreen({Key? key}) : super(key: key);
+  const ThirdScreen({Key? key}) : super(key: key);
 
   @override
   State<ThirdScreen> createState() => _ThirdScreenState();
 }
 
 class _ThirdScreenState extends State<ThirdScreen> {
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Главная',
-      style: optionStyle,
-    ),
-    Text(
-      'Корзина',
-      style: optionStyle,
-    ),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
+  int _current_index = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      /////////////////////////////////////////////////////////////////////////
       appBar: AppBar(
-        title: Text('Dostavka'),
+        title: Text(
+          'Dostavka',
+          style: GoogleFonts.jetBrainsMono(
+              fontWeight: FontWeight.w900, color: Colors.black),
+        ),
+        backgroundColor: Colors.white,
+        elevation: 10,
       ),
-      body: ListView(
-        scrollDirection: Axis.horizontal,
-        children: cathegories
-            .map((categories) => buildCatCard(context,
-                image: categories.icon, title: categories.title))
-            .toList(),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Главная'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.star),
-            label: 'Рестораны',
+      /////////////////////////////////////////////////////////////////////////
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            flex: 2,
+            child: Container(
+                child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: categories
+                  .map((categories) => buildCategoryCard(context,
+                      image: categories.icon, title: categories.title))
+                  .toList(),
+            )),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.star),
-            label: 'Корзина',
+          Expanded(
+            flex: 8,
+            child: ListView(
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
+              children: restaurants
+                  .map((restaurants) => buildReustarantCard(context,
+                      name: restaurants.name,
+                      image: restaurants.image,
+                      cathegory: restaurants.cathegory))
+                  .toList(),
+            ),
           )
         ],
-        selectedItemColor: Colors.amber[800],
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
       ),
+      //////////////////////////////////////////////////////////////////////////
     );
   }
 
-  Widget buildCatCard(BuildContext context,
+  Widget buildCategoryCard(BuildContext context,
           {required String image, required String title}) =>
       FractionallySizedBox(
-        heightFactor: 0.25,
+        heightFactor: 1,
         child: CathegoryCard(title: title, image: image),
       );
+
+  Widget buildReustarantCard(BuildContext context,
+          {required String name,
+          required String image,
+          required List<String> cathegory}) =>
+      FractionallySizedBox(
+        child: ReustarantCard(
+          image: image,
+          name: name,
+          category: cathegory,
+        ),
+      );
 }
+
+/*Column(
+        children: <Widget>[
+          Expanded(
+            flex: 2,
+            child: Container(
+                child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: categories
+                  .map((categories) => buildCategoryCard(context,
+                      image: categories.icon, title: categories.title))
+                  .toList(),
+            )),
+          ),
+          Expanded(
+            flex: 8,
+            child: ListView(
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
+              children: restaurants
+                  .map((restaurants) => buildReustarantCard(context,
+                      name: restaurants.name,
+                      image: restaurants.image,
+                      cathegory: restaurants.cathegory))
+                  .toList(),
+            ),
+          )
+        ],
+      ),*/

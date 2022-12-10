@@ -1,11 +1,10 @@
+
+
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lab_crossplatform/screen_2_main/screen_2.dart';
-import 'package:lab_crossplatform/screen_3_reustarants/screen_3_page.dart';
+import 'package:lab_crossplatform/screen_4_cart/screen_4.dart';
 
-import 'main/screen_all.dart';
-
-// ignore_for_file: prefer_const_constructors
-//Функция зупускающая приложение
 void main() {
   runApp(MyApp());
 }
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
         primaryColor: const Color(0xFF2196f3),
         canvasColor: const Color(0xFFfafafa),
       ),
-      home: MainScreenAllPagesWidget(),
+      home: ScreenFourPage(),
     );
   }
 }
