@@ -15,19 +15,18 @@ class FifthScreen extends StatefulWidget {
 class _FifthScreenState extends State<FifthScreen> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Yandex Eat",
-      home: Scaffold(
+    return  Scaffold(
         appBar: AppBar(
           title: Text(
-            'Корзина',
+            'Yandex Еда',
             style: GoogleFonts.jetBrainsMono(
                 fontWeight: FontWeight.w900, color: Colors.black),
           ),
           backgroundColor: Colors.white,
           elevation: 10,
         ),
-        body: GridView.count(
+        body: Container(
+          child: GridView.count(
           crossAxisCount: 2,
           children: List.generate(dishes.length, (index) {
             return Center(
@@ -35,7 +34,7 @@ class _FifthScreenState extends State<FifthScreen> {
             );
           }),
         ),
-      ),
+        ),
     );
   }
 }

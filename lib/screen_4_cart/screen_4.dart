@@ -1,6 +1,7 @@
 // Экран корзины
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../screen_3_reustarants/Data/CartData.dart';
 import '../screen_3_reustarants/Data/Item_model.dart';
@@ -17,6 +18,15 @@ class _ScreenFourPageState extends State<ScreenFourPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'Корзина',
+            style: GoogleFonts.jetBrainsMono(
+                fontWeight: FontWeight.w900, color: Colors.black),
+          ),
+          backgroundColor: Colors.white,
+          elevation: 10,
+        ),
         // appBar: AppBar(
         //   title: Text(
         //     "Dostavka",
@@ -40,10 +50,6 @@ class _ScreenFourPageState extends State<ScreenFourPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
 
-              Text(
-                "Корзина",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 21.0),
-              ),
               SizedBox(height: 18.0),
               Container(
                 height: 300,
