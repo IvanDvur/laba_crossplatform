@@ -4,6 +4,8 @@ import 'package:lab_crossplatform/screen_2_main/Data/carusel_main.dart';
 import 'package:lab_crossplatform/screen_2_main/Data/circle_main.dart';
 import 'package:lab_crossplatform/screen_2_main/Data/square_main.dart';
 
+import '../screen_5_dish/screen_5_model.dart';
+
 class TwoScreen extends StatefulWidget {
   const TwoScreen({Key? key}) : super(key: key);
 
@@ -13,18 +15,17 @@ class TwoScreen extends StatefulWidget {
 
 class MainScreenPage_2 extends State<TwoScreen> {
 
-  final List _posts = [
-    'post 1',
-    'post 2',
-    'post 3',
-    'post 4',
+  final List<Dish> _posts = [
+    const Dish (title: "post 1", iconUrl: "lib/assets/images/Abstract 2 by Meriç Dağlı  on Unsplash (large).jpg.jpg", description: "Фон 1" ),
+    const Dish (title: "post 2", iconUrl: "lib/assets/images/Abstract 1 by Delila Ziebart on Unsplash (large).jpg.jpg", description: "Фон 2" ),
+    const Dish (title: "post 3", iconUrl: "lib/assets/images/Abstract 3 by Meriç Dağlı  on Unsplash (large).jpg.jpg", description: "Фон 3" ),
+    const Dish (title: "post 4", iconUrl: "lib/assets/images/Abstract 4 by Viktoria Sotsugova on Unsplash (large).jpg.jpg", description: "Фон 4" ),
   ];
 
   final List _stories = [
-    'story 1',
-    'story 2',
-    'story 3',
-    'story 4',
+    const Dish (title: "post 1", iconUrl: "lib/assets/images/bread.png", description: "Фон 1" ),
+    const Dish (title: "post 2", iconUrl: "lib/assets/images/sausage.svg", description: "Фон 2" ),
+    const Dish (title: "post 4", iconUrl: "lib/assets/images/tomato.svg", description: "Фон 4" ),
   ];
 
   int _current_index = 1;
@@ -44,11 +45,12 @@ class MainScreenPage_2 extends State<TwoScreen> {
                   height: 150,
                   // child: CarouselApp(),
                   child: ListView.builder(
-                    itemCount: _stories.length,
+                    itemCount: _posts.length,
                     scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
                         return MyRectangle(
-                          child: _stories[index],
+                          child: _posts[index].title,
+                          childIcon: _posts[index].iconUrl,
                         );
                       })
               ),
@@ -62,10 +64,11 @@ class MainScreenPage_2 extends State<TwoScreen> {
               Expanded(
                 flex: 5,
                   child: ListView.builder(
-                    itemCount: _posts.length,
+                    itemCount: _stories.length,
                     itemBuilder: (context, index) {
                       return MySquare(
-                        child: _posts[index],
+                        child: _stories[index].title,
+                        childIcon: _stories[index].iconUrl,
                       );
                     },
                   ),

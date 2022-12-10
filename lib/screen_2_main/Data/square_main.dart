@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MySquare extends StatelessWidget {
   final String child;
+  final String childIcon;
 
-  MySquare({required this.child});
+  MySquare({required this.child, required this.childIcon});
 
   @override
   Widget build(BuildContext context) {
@@ -11,8 +13,13 @@ class MySquare extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10),
         child: Container(
           height: 200,
-          color: Colors.deepPurple[100],
-          child: Center(child: Text(child, style: TextStyle(fontSize: 40),),),
+          // color: Colors.deepPurple[100],
+          decoration: BoxDecoration(
+              image: DecorationImage(image: new AssetImage(childIcon), repeat: ImageRepeat.repeat),
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: Colors.blueAccent)
+          ),
+          child: Center(child: Text(child, style: GoogleFonts.saira(fontSize: 40),),),
         ),
     );
   }
@@ -20,8 +27,9 @@ class MySquare extends StatelessWidget {
 
 class MyRectangle extends StatelessWidget {
   final String child;
+  final String childIcon;
 
-  MyRectangle({required this.child});
+  MyRectangle({required this.child, required this.childIcon});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +40,7 @@ class MyRectangle extends StatelessWidget {
         height: 200,
         width: 370,
         decoration: BoxDecoration(
-          image: DecorationImage(image: new AssetImage("lib/assets/images/Abstract 1 by Delila Ziebart on Unsplash (large).jpg.jpg"), repeat: ImageRepeat.repeat),
+          image: DecorationImage(image: new AssetImage(childIcon), repeat: ImageRepeat.repeat),
           borderRadius: BorderRadius.circular(20),
             border: Border.all(color: Colors.blueAccent)
         ),
